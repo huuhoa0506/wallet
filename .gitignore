@@ -1,32 +1,41 @@
-# Prerequisites
-*.d
+# Ignore build output
+/build/
+/build*/  # include build-debug, build-release, etc.
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Ignore Conan files
+conan.lock
+conanbuildinfo.*
+conaninfo.txt
 
-# Precompiled Headers
-*.gch
-*.pch
+# CMake-generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# IDE specific
+*.user
+*.userprefs
+*.suo
+*.vcxproj*
+*.idea/
+.vscode/
+*.DS_Store
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+# Executables and libraries
 *.exe
 *.out
 *.app
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.obj
+*.o
+*.lo
+
+# Logs and temporary files
+*.log
+*.tmp

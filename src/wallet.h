@@ -10,5 +10,9 @@
   #define WALLET_EXPORT
 #endif
 
+<<<<<<< HEAD
+=======
+WALLET_EXPORT void run();
+>>>>>>> 8ff7fea (Init)
 WALLET_EXPORT void wallet();
 WALLET_EXPORT void wallet_print_vector(const std::vector<std::string> &strings);

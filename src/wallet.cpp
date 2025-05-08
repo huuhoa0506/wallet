@@ -1,8 +1,68 @@
 #include <iostream>
 #include "wallet.h"
 
+<<<<<<< HEAD
 
 
+=======
+using namespace std;
+
+
+void run() {
+
+
+    bool isRuning = true;
+
+    do {
+
+
+        // show menu
+        cout << "1. Hien thi thong tin nguoi dung." << endl;
+        cout << "2. Update thong tin nguoi dung." << endl;
+        cout << "3. Doi mat khau." << endl;
+        cout << "4. Chuyen tien." << endl;
+        cout << "5. Exit" << endl;
+
+        int option;
+        cin >> option;
+
+        switch(option) {
+            case 1: {
+
+                cout << "Hiển thị thông tin người dùng" << endl;
+
+                break;
+            }
+            case 2: {
+
+                cout << "Thực hiện cập nhật thông tin người dùng" << endl;
+
+                break;
+            }
+            case 3: {
+
+                cout << "Thực hiện đổi mật khẩu" << endl;
+
+                break;
+            }
+            case 4: {
+
+                cout << "Chuyển tiền" << endl;
+
+                break;
+            }
+            case 5: 
+            default: 
+            {
+                isRuning = false;
+            }
+        }
+
+
+    } while(isRuning);
+}
+
+>>>>>>> 8ff7fea (Init)
 void wallet(){
     
 
