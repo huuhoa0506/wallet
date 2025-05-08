@@ -1,19 +1,5 @@
-<<<<<<< HEAD
-#include "wallet.h"
-#include <vector>
-#include <string>
-
-int main() {
-    wallet();
-
-    std::vector<std::string> vec;
-    vec.push_back("test_package");
-
-    wallet_print_vector(vec);
-=======
 #include "app.h"
 #include <iostream>
-
 
 using namespace std;
 
@@ -46,5 +32,4 @@ int main() {
     App app(auth);
 
     app.run();
->>>>>>> 8ff7fea (Init)
 }
