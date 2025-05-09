@@ -10,5 +10,6 @@ public:
     Auth(UserRepository* userRepo): userRepo(userRepo){};
     bool login(string username, string password);
     void showCurrentUser();
+    bool verifyPassword(User *user, string password);
 };
 

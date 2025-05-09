@@ -14,8 +14,10 @@ void InputAccountInfo(string& username, string& password) {
 int main() {
     
     int attemps = 0;
+    UserRepository* userRepo;
+    Auth* auth = new Auth(userRepo =new UserRepository());
 
-    Auth* auth = new Auth(new UserRepository);
+    userRepo->save(new User(1,"hoanh", "Nguyen Hoa", "password"));
 
     string username, password;
 

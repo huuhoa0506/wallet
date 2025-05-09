@@ -3,11 +3,13 @@
 using namespace std;
 
 class User {
+    unsigned int id;
     string fullname;
     string username;
     string password;
 public:
-    User(string username, string fullname, string password);
+    User(unsigned int id, string username, string fullname, string password);
+    unsigned int getId();
     string getUsername();
     string getFullname();
     string getPassword();

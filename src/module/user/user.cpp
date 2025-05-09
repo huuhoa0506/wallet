@@ -1,6 +1,10 @@
 #include "user.h"
 
-User::User(string username, string fullname, string password): username(username), fullname(fullname), password(password){}
+User::User(unsigned int id, string username, string fullname, string password): id(id), username(username), fullname(fullname), password(password){}
+
+unsigned int User::getId() {
+    return id;
+}
 string User::getUsername() {
     return username;
 }

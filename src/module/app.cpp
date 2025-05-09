@@ -11,6 +11,8 @@ const int CHANGE_PASSWORD = 3;
 const int TRANSFER_MONEY = 4;
 const int EXIT_APP = 5;
 
+UserRepository* userRepo = new UserRepository();
+
 void App::run() {
 
 
@@ -41,6 +43,8 @@ void App::run() {
             case UPDATE_PROFILE: {
 
                 cout << "Thực hiện cập nhật thông tin người dùng" << endl;
+
+                userRepo->save(new User(1,"hoanh", "Nguyen Hoa", "password"));
 
                 break;
             }

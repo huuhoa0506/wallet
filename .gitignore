@@ -1,5 +1,6 @@
 # Ignore build output
 /build/
+/storage/
 /build*/  # include build-debug, build-release, etc.
 
 # Ignore Conan files
