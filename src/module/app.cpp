@@ -21,12 +21,13 @@ void App::run() {
     do {
 
         // show menu
-        cout << endl;
+        cout <<"----------------------------------"<< endl;
         cout << "1. Hiển thị thông tin người dùng." << endl;
         cout << "2. Cập nhật thông tin người dùng." << endl;
         cout << "3. Đổi mật khẩu." << endl;
         cout << "4. Chuyển tiền." << endl;
         cout << "5. Thoát" << endl;
+        cout <<"----------------------------------"<< endl;
 
         int option;
         cout << "Nhập tuỳ chọn: ";
@@ -44,13 +45,20 @@ void App::run() {
 
                 cout << "Thực hiện cập nhật thông tin người dùng" << endl;
 
-                userRepo->save(new User(1,"hoanh", "Nguyen Hoa", "password"));
-
                 break;
             }
             case CHANGE_PASSWORD: {
 
-                cout << "Thực hiện đổi mật khẩu" << endl;
+                string oldPassword, newPassword;
+
+                cout << "Mật khẩu hiện tại:"; cin >> oldPassword;
+                cout << "Mật khẩu mới:"; cin >> newPassword;
+
+                while(!auth->changePassword(oldPassword, newPassword)) {
+                    cout << "Mật khẩu hiện tại chưa đúng" << endl;
+                    cout << "Mật khẩu hiện tại:"; cin >> oldPassword;
+                    cout << "Mật khẩu mới:"; cin >> newPassword;
+                }
 
                 break;
             }
@@ -66,7 +74,7 @@ void App::run() {
                 isRuning = false;
             }
         }
-    } while(isRuning);
+    } while(isRuning && auth->isLoggedIn());
 };
 
 
