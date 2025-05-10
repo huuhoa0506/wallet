@@ -14,4 +14,5 @@ class Repository {
 public:
     T* findById(string id);
     bool save(T* model);
+    unsigned int nextID();
 };

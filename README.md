@@ -15,3 +15,4 @@
 ***Chạy dòng lệnh sau tại thư mục gốc sau khi build***
 `build/wallet`
 
+C++ project

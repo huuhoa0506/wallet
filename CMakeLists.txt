@@ -4,7 +4,7 @@ project(wallet CXX)
 
 add_executable(
         wallet 
-        src/module/common/notfound-exception.cpp
+        src/module/common/notfound-exception.h
         src/module/app.cpp 
         src/module/user/user.cpp 
         src/module/user/user-repository.cpp

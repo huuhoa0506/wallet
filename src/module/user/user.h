@@ -4,8 +4,8 @@ using namespace std;
 
 class User {
     unsigned int id;
-    string fullname;
     string username;
+    string fullname;
     string password;
 public:
     User(unsigned int id, string username, string fullname, string password);
