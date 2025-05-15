@@ -10,13 +10,26 @@ using namespace std;
 
 string storage = "storage/data/users.csv";
 
-
-void readFromFile(string filename, vector<User*>& users) {
-    ifstream in("storage/data/users.csv");
-    
-    if(!in) {
-        throw runtime_error("Could not open the file");
+bool safe_open(std::fstream &fs, const std::string &filename,
+               std::ios::openmode mode = std::ios::in | std::ios::out) {
+    fs.open(filename, mode);
+    if (!fs.is_open()) {
+        // Nếu mở thất bại (do file không tồn tại), tạo file mới
+        std::ofstream create_file(filename);
+        if (!create_file) return false; // Không tạo được file
+        create_file.close();
+        fs.open(filename, mode); // Mở lại sau khi tạo
     }
+    return fs.is_open();
+}
+
+
+void readFromFile(vector<User*>& users) {
+    fstream in;
+
+    safe_open(in, storage, ios::in);
+    
+    
 
     users.clear();
 
@@ -39,8 +52,9 @@ void readFromFile(string filename, vector<User*>& users) {
 }
 
 
-void writeToFile(string filename, const vector<User*>& users) {
-    ofstream out(filename);
+void writeToFile(const vector<User*>& users) {
+    fstream out;
+    safe_open(out, storage, ios::out);
     for (User* user : users) {
         out << user->getId() << "," << user->getUsername() << "," << user->getFullname() << "," << user->getPassword() << "\n";
     }
@@ -49,7 +63,7 @@ void writeToFile(string filename, const vector<User*>& users) {
 
 
 UserRepository::UserRepository(){
-   readFromFile(storage, users);
+   readFromFile(users);
    incrementing=users.size();
 };
 
@@ -66,14 +80,14 @@ bool UserRepository::save(User* user) {
     
     try
     {
-        User* user = findByUsername(user->getUsername());
+        findByUsername(user->getUsername());
     }
     catch(const NotfoundException& e)
     {
         users.push_back(user);
     }
 
-    writeToFile(storage, users);
+    writeToFile(users);
 
     return true;
 }

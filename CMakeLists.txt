@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 project(wallet CXX)
 
+if(WIN32)
+    add_definitions(-DUTF8_CONSOLE)
+endif()
+
 
 find_package(OpenSSL REQUIRED)
 

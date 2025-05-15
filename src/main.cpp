@@ -1,6 +1,10 @@
 #include "app.h"
 #include <iostream>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 using namespace std;
 
 void InputLogin(string& username, string& password) {
@@ -22,7 +26,13 @@ void InputRegister(string& username, string& fullname, string& password) {
 }
 
 int main() {
-    
+
+    #ifdef _WIN32
+        // Thiết lập bảng mã UTF-8 cho console output và input
+        SetConsoleOutputCP(CP_UTF8);
+        SetConsoleCP(CP_UTF8);
+    #endif
+
     int attemps = 0;
     UserRepository* userRepo;
     Auth* auth = new Auth(userRepo =new UserRepository());
@@ -53,7 +63,7 @@ int main() {
                 InputRegister(username, fullname, password);
                 while(!auth->registerAccount(username, fullname, password)) {
                     attemps++;
-                    cout << "Username or password incorrent!" << endl;
+                    cout << "The username was exits!" << endl;
             
                     InputRegister(username, fullname, password);
                     if(attemps == 3) exit(1);
