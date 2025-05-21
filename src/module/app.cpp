@@ -226,12 +226,14 @@ void App::runAsAdmin() {
                     break;
                 }
                 case CREATE_ACCOUNT: {
+                    cout << "-----------Tạo tài khoản----------" << endl;
                     string username, fullname, password;
                     utils::InputRegister(username, fullname, password);
-                    cout << "-----------Tạo tài khoản----------" << endl;
+                    
                     unsigned int id  = userRepo->nextID();
                     User* user = User::newUser(id, username, fullname, utils::md5(password));
                     userRepo->save(user);
+                    cout << "Tạo tài khoản thành công! \n";
                     break;
                 }
                 case UPDATE_PROFILE: {

@@ -59,7 +59,7 @@ void Auth::showCurrentUser() {
          << "Tên: " << currentUser->getFullname() << endl
          << "Role: " << currentUser->getRole() << endl
          << "Số dư: " << fixed << setprecision(2) << currentUser->getBalance() << endl
-         << "Ngày tạo: " << currentUser->getCreatedAt() << endl ;
+         << "Ngày tạo: " << utils::date_time(currentUser->getCreatedAt()) << endl ;
 };
 
 

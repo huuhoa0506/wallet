@@ -42,10 +42,15 @@ namespace utils {
     void InputRegister(string& username, string& fullname, string& password) {
         cout << "Username: ";
         cin >> username;
+        cin.ignore();
         cout << "Fullname: ";
         getline(cin, fullname);
-        cin.ignore();
-        password = GetHiddenInput();
+
+        cout << "Password: ";
+        cin >> password;
+        // getline(cin, fullname);
+        
+        // password = GetHiddenInput();
     }
 
     void InputLogin(string& username, string& password) {
