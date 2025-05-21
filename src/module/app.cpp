@@ -274,5 +274,17 @@ void App::authenticate() {
     }
 }
 
+void App::setup() {
+    string filename = "storage/data/config.txt";
+    // UserRepository* userRepo = UserRepository::getInstance();
 
+    cout << "FILE GOOD"<<flush;
+    // std::fstream file(filename, std::ios::out);
+    // if (file.good()) {
+        
+    // } else {
+    //     User* user = User::newAdmin(1, "system", "System", utils::md5("admin"));
+    //     userRepo->save(user);
+    // }
 
+}
