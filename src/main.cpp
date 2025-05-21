@@ -1,69 +1,19 @@
 #include "app.h"
+#include "common/utils.h"
 #include <iostream>
 
 using namespace std;
 
-void InputLogin(string& username, string& password) {
-    cout << "Username: ";
-    cin >> username;
-    cout << endl;
-    cout << "Password: ";
-    cin >> password;
-}
-
-void InputRegister(string& username, string& fullname, string& password) {
-    cout << "Username: ";
-    cin >> username;
-    cout << "Fullname: ";
-    cin.ignore();
-    getline(cin, fullname);
-    cout << "Password: ";
-    cin >> password;
-}
-
 int main() {
-    
-    int attemps = 0;
-    UserRepository* userRepo;
-    Auth* auth = new Auth(userRepo =new UserRepository());
 
-    while(!auth->isLoggedIn()) {
-        int option;
-        const int LOGIN = 1;
-        const int REGISTER = 2;
-        cout << "1. Đăng nhập" << endl;
-        cout << "2. Đăng ký" << endl;
-        cout << "Thoát ấn phím bất kỳ" << endl;
-        cin>>option;
-        switch(option) {
-            case LOGIN: {
-                string username, password;
-                InputLogin(username, password);
-                while(!auth->login(username, password)) {
-                    attemps++;
-                    cout << "Username or password incorrent!" << endl;
-            
-                    InputLogin(username, password);
-                    if(attemps == 3) exit(1);
-                }
-                break;
-            }
-            case REGISTER: {
-                string username, fullname, password;
-                InputRegister(username, fullname, password);
-                while(!auth->registerAccount(username, fullname, password)) {
-                    attemps++;
-                    cout << "Username or password incorrent!" << endl;
-            
-                    InputRegister(username, fullname, password);
-                    if(attemps == 3) exit(1);
-                }
-                break;
-            }
-        } 
-    }
-   
-    App app(auth);
+    Auth* auth = new Auth(UserRepository::getInstance());
+    App app(
+        auth, 
+        new TransactionManager(
+            UserRepository::getInstance(), 
+            TransactionRepository::getInstance()
+        )
+    );
 
     app.run();
 }
