@@ -27,3 +27,10 @@
 C++ project
 
 ●	Mô tả cách chạy chương trình:
+
+● Tài liệu đã tham khảo: 
++ Lập trình C++ cơ bản và nâng cao https://cplusplus.com/, https://en.cppreference.com/w/.
++ Quản lý OTP và xác thực: CPP_OTP GitHub – sinh mã OTP bằng C++, COTP GitHub – thư viện tạo và kiểm tra OTP.
++ Khái niệm cơ bản về OTP: https://authy.com/what-is-a-one-time-password-otp/.
++ Nguyên lý ACID trong hệ thống tài chính:https://200lab.io/blog/acid-la-gi/
++ Tham khảo về quản lý ví & giao dịch:https://www.geeksforgeeks.org/e-wallet-management-system/
