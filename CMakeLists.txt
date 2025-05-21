@@ -20,7 +20,7 @@ add_executable(
         src/module/user/transaction.cpp
         src/module/user/transaction-repository.cpp
         src/module/auth/auth.cpp 
-        src/module/auth/otp-manager.cp
+        src/module/auth/otp-manager.cpp
         src/wallet.cpp 
         src/main.cpp
 )

@@ -1,6 +1,8 @@
 #include <iostream>
+#include <fstream>
 #include <app.h>
 #include <common/utils.h>
+#include "auth/otp-manager.h"
 
 
 using namespace std;
@@ -294,15 +296,15 @@ void App::authenticate() {
 
 void App::setup() {
     string filename = "storage/data/config.txt";
-    // UserRepository* userRepo = UserRepository::getInstance();
+    UserRepository* userRepo = UserRepository::getInstance();
 
-    cout << "FILE GOOD"<<flush;
-    // std::fstream file(filename, std::ios::out);
-    // if (file.good()) {
+    
+    if (!filesystem::exists(filename)) {
         
-    // } else {
-    //     User* user = User::newAdmin(1, "system", "System", utils::md5("admin"));
-    //     userRepo->save(user);
-    // }
+        std::fstream file(filename, std::ios::out);
+
+        User* user = User::newAdmin(1, "system", "System", utils::md5("admin"));
+        userRepo->save(user);
+    }
 
 }

@@ -18,6 +18,6 @@ int main() {
             TransactionRepository::getInstance()
         )
     );
-    app.setup()
+    app.setup();
     app.run();
 }
