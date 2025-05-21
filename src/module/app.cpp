@@ -100,6 +100,24 @@ void App::run() {
                 string sender = auth->getAuthUser()->getUsername();
                 string amount;
                 inputTransfer(receiver, amount);
+
+                OTPManager& otpManager = OTPManager::getInstance();
+                std::string otp = otpManager.createOTP(sender);
+                std::cout << "OTP sent to user: " << otp << std::endl;
+
+                // Nhập mã từ người dùng
+                std::string input;
+                std::cout << "Nhập mã OTP: ";
+                std::cin >> input;
+                
+                // Xác minh OTP
+                if (otpManager.verifyOTP(sender, input)) {
+                    std::cout << "OTP hợp lệ. Truy cập được cho hoa.\n";
+                } else {
+                    std::cout << "OTP sai hoặc hết hạn.\n";
+                    break;
+                }
+                
                 if(!transManager->transfer(sender, receiver, stod(amount))) {
                     cerr << "Chuyển tiền thất bại. \n";
                 } else {
