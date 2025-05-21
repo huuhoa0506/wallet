@@ -11,7 +11,7 @@ private:
 public:
     
     ~TransactionRepository();
-    vector<Transaction> const findByUsername(string username);
+    vector<Transaction*> const findByUsername(string username);
     Transaction* findById(string id);
     static TransactionRepository* getInstance();
     bool save(Transaction *tran);

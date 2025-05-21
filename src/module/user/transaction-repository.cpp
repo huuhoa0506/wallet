@@ -40,7 +40,7 @@ void readFromFile(vector<Transaction*>& transactions) {
 void writeToFile(const vector<Transaction*>& transactions) {
     ofstream out("storage/data/transactions.csv");
     for (Transaction* tran : transactions) {
-        out << tran->getId() << "," << tran->getSender() << "," << tran->getReceiver() << ","<< std::fixed << std::setprecision(2) << tran->getAmount() << "," << static_cast<int>(tran->getType()) << "," << tran->getCreatedAt() << "\n";
+        out << tran->getId() << "," << tran->getSender() << "," << tran->getReceiver() << ","<< fixed << setprecision(2) << tran->getAmount() << "," << static_cast<int>(tran->getType()) << "," << tran->getCreatedAt() << "\n";
     }
     out.close();
 }
@@ -72,6 +72,17 @@ Transaction* TransactionRepository::findById(string id) {
     }
 
     throw NotfoundException("Transaction not found!");
+}
+
+vector<Transaction*> const TransactionRepository::findByUsername(string username) {
+    vector<Transaction*> trans;
+
+    for(Transaction* tran : transactions){
+        if(tran->getSender() == username || tran->getReceiver() == username) {
+            trans.push_back(tran);
+        }
+    }
+    return trans;
 }
 
 bool TransactionRepository::save(Transaction* tran)

@@ -108,6 +108,31 @@ void App::run() {
 
                 break;
             }
+            case HISTORY: {
+
+                vector<Transaction*> trans = transManager->historyOfUser(auth->getAuthUser()->getUsername());
+
+
+                int colWidth = 20;
+
+                cout << left << setw(40) << "ID";
+                cout << left << setw(colWidth) << "Sender";
+                cout << left << setw(colWidth) << "Receiver";
+                cout << left << setw(colWidth) << "Amount";
+                cout << left << setw(colWidth) << "Time";
+                cout << "\n";
+
+                for (const auto& tran : trans) {
+                    cout << left << setw(40) << tran->getId();
+                    cout << left << setw(colWidth) << tran->getSender();
+                    cout << left << setw(colWidth) << tran->getReceiver();
+                    cout << left << setw(colWidth) << tran->getAmount();
+                    cout << left << setw(colWidth) << utils::date_time(tran->getCreatedAt());
+                    cout << "\n";
+                }
+
+                break;
+            }
             case ADMIN: {
                 runAsAdmin();
                 break;

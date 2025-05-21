@@ -14,6 +14,7 @@ public:
     TransactionManager(UserRepository* userRepo, TransactionRepository* transRepo);
     ~TransactionManager();
     bool transfer(string fromUsername, string toUsername, double amount);
+    vector<Transaction*> historyOfUser(const string& username);
 };
 
 

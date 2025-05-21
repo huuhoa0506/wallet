@@ -43,16 +43,15 @@ namespace utils {
         cout << "Username: ";
         cin >> username;
         cout << "Fullname: ";
-        cin.ignore();
         getline(cin, fullname);
+        cin.ignore();
         password = GetHiddenInput();
     }
 
     void InputLogin(string& username, string& password) {
         cout << "Username: ";
         cin >> username;
-        cout << endl;
-        password = GetHiddenInput();
+        password = GetHiddenInput("Password: ");
     }
 
 

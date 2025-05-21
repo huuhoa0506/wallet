@@ -66,5 +66,11 @@ bool TransactionManager::transfer(string fromUsername, string toUsername, double
         cerr << e.what() << '\n';
         return false;
     }
+
     
+    
+}
+
+vector<Transaction*> TransactionManager::historyOfUser(const string& username) {
+    return transRepo->findByUsername(username);
 }

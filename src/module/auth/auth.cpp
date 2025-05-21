@@ -58,7 +58,7 @@ void Auth::showCurrentUser() {
     cout <<"Tên đăng nhập: " << currentUser->getUsername() << endl 
          << "Tên: " << currentUser->getFullname() << endl
          << "Role: " << currentUser->getRole() << endl
-         << "Số dư: " << currentUser->getBalance() << endl
+         << "Số dư: " << fixed << setprecision(2) << currentUser->getBalance() << endl
          << "Ngày tạo: " << currentUser->getCreatedAt() << endl ;
 };
 
