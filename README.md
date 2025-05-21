@@ -1,4 +1,5 @@
-●	Giới thiệu dự án: # wallet - Hệ thống đăng nhập và đăng ký tài khoản và quản lý ví điểm thưởng
+●	Giới thiệu dự án: # wallet - Hệ thống đăng nhập và đăng ký tài khoản và quản lý ví điểm thưởng.
+
 ●	Các thành viên tham gia dự án:
 + Nguyễn Hữu Hòa-K24DTCN056(Trưởng nhóm)
 + Nguyễn Vũ Thắng-K24DTCN091
