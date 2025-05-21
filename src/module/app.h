@@ -4,6 +4,8 @@
 #include "user/transaction-manager.h"
 #include "user/transaction-repository.h"
 
+const double TOTOAL_SYSTEM_AMOUNT = 100000000000
+
 class App {
     Auth* auth;
     TransactionManager* transManager;
@@ -13,5 +15,5 @@ public:
     void showCurrentUser();
     void runAsAdmin();
     void authenticate();
+    void setup();
 };
-
