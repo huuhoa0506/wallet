@@ -10,12 +10,14 @@ using namespace std;
 
 string storage = "storage/data/users.csv";
 
-bool safe_open(std::fstream &fs, const std::string &filename,
-               std::ios::openmode mode = std::ios::in | std::ios::out) {
+UserRepository* UserRepository::instance = nullptr;
+
+bool safe_open(fstream &fs, const string &filename,
+               ios::openmode mode = ios::in | ios::out) {
     fs.open(filename, mode);
     if (!fs.is_open()) {
         // Nếu mở thất bại (do file không tồn tại), tạo file mới
-        std::ofstream create_file(filename);
+        ofstream create_file(filename);
         if (!create_file) return false; // Không tạo được file
         create_file.close();
         fs.open(filename, mode); // Mở lại sau khi tạo
@@ -62,7 +64,7 @@ void writeToFile(const vector<User*>& users) {
     fstream out;
     safe_open(out, storage, ios::out);
     for (User* user : users) {
-        out << user->getId() << "," << user->getUsername() << "," << user->getFullname() << "," << user->getPassword() << "," << user->getRole() <<"," << fixed << std::setprecision(2)<< user->getBalance() <<"," << user->getCreatedAt() <<"\n";
+        out << user->getId() << "," << user->getUsername() << "," << user->getFullname() << "," << user->getPassword() << "," << user->getRole() <<"," << fixed << setprecision(2)<< user->getBalance() <<"," << user->getCreatedAt() <<"\n";
     }
     out.close();
 }
