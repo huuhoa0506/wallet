@@ -58,6 +58,5 @@ User* User::newUser(unsigned int id, string username, string fullname, string pa
 }
 
 User* User::newAdmin(unsigned int id, string username, string fullname, string password) {
-    return new User(id, username, fullname, password, User::ROLE_ADMIN, 0, time(nullptr));
+   return new User(id, username, fullname, password, User::ROLE_ADMIN, 1000000000, time(nullptr));
 }
-
