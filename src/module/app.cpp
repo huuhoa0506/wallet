@@ -295,14 +295,22 @@ void App::authenticate() {
 }
 
 void App::setup() {
-    string filename = "storage/data/config.txt";
-    UserRepository* userRepo = UserRepository::getInstance();
-
-    
-    if (!filesystem::exists(filename)) {
+    if (!filesystem::exists("storage/data")) {
         
-        std::fstream file(filename, std::ios::out);
+        filesystem::create_directories("storage/data");
+        string userdata = "storage/data/users.csv";
+        string transdata = "storage/data/transactions.csv";
+        string filename = "storage/data/config.txt";
 
+        std::fstream userfile(userdata, std::ios::out);
+        std::fstream tranfile(transdata, std::ios::out);
+        std::fstream config(filename, std::ios::out);
+
+        userfile.close();
+        tranfile.close();
+        config.close();
+
+        UserRepository* userRepo = UserRepository::getInstance();
         User* user = User::newAdmin(1, "system", "System", utils::md5("admin"));
         userRepo->save(user);
     }
