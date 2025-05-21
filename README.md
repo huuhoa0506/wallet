@@ -8,14 +8,14 @@
 
 ●	Phân tích chi tiết:
 Chức năng đăng ký & đăng nhập:
-1.1 Tạo tài khoản:
-     Người dùng nhập dữ liệu để tạo tài khoản. 
-1.2 Đăng nhập:
-     Yêu cầu người dùng cần thay đổi mật khẩu sau lần đầu, vì mật khẩu được sinh tự động.
-1.3 Xác thực đăng nhập:
-     Kiểm tra thông tin người dùng trên cơ sở dữ liệu.
-1.4 Đổi mật khẩu:
-     Người dùng có thể thay đổi mật khẩu của mình, tối thiểu 8 kí tự bao gồm in hoa, thường, chữ số và kí tự đặc biệt.
+✅1.1 Tạo tài khoản:
+Người dùng nhập dữ liệu để tạo tài khoản. 
+✅1.2 Đăng nhập:
+Yêu cầu người dùng cần thay đổi mật khẩu sau lần đầu, vì mật khẩu được sinh tự động.
+✅1.3 Xác thực đăng nhập:
+Kiểm tra thông tin người dùng trên cơ sở dữ liệu.
+✅1.4 Đổi mật khẩu:
+Người dùng có thể thay đổi mật khẩu của mình, tối thiểu 8 kí tự bao gồm in hoa, thường, chữ số và kí tự đặc biệt.
 
 ●	Cách tải chương trình, dịch chương trình, các tập tin:
 **Điều kiện**
