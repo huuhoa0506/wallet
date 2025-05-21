@@ -44,8 +44,14 @@ void readFromFile(vector<User*>& users) {
         getline(ss, token, ',');
         string fullname = token;
         getline(ss, token, ',');
-        string password = token;   
-        users.push_back(new User(id, username, fullname, password));
+        string password = token;
+        getline(ss, token, ',');
+        int role = stoi(token);
+        getline(ss, token, ',');
+        double balance(stod(token));
+        getline(ss, token, ',');
+        time_t createdAt(stol(token));
+        users.push_back(new User(id, username, fullname, password, role, balance, createdAt));
     }
     in.close();
 
@@ -56,7 +62,7 @@ void writeToFile(const vector<User*>& users) {
     fstream out;
     safe_open(out, storage, ios::out);
     for (User* user : users) {
-        out << user->getId() << "," << user->getUsername() << "," << user->getFullname() << "," << user->getPassword() << "\n";
+        out << user->getId() << "," << user->getUsername() << "," << user->getFullname() << "," << user->getPassword() << "," << user->getRole() <<"," << fixed << std::setprecision(2)<< user->getBalance() <<"," << user->getCreatedAt() <<"\n";
     }
     out.close();
 }
@@ -67,10 +73,19 @@ UserRepository::UserRepository(){
    incrementing=users.size();
 };
 
+UserRepository* UserRepository::getInstance() {
+    if(instance == nullptr) {
+        instance = new UserRepository();
+    }
+    return instance;
+}
+
 User* UserRepository::findByUsername(string username) {
 
-    for(auto u : this->users) {
-        if (u->getUsername() == username) return u;
+    for(User* u : this->users) {
+        if (u->getUsername() == username) {
+            return u;
+        } 
     }
 
     throw NotfoundException("User not found!");
@@ -94,4 +109,9 @@ bool UserRepository::save(User* user) {
 
 unsigned int UserRepository::nextID() {
     return ++incrementing;
+}
+
+
+const vector<User*> UserRepository::getAll() {
+    return users;
 }

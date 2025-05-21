@@ -19,7 +19,9 @@ class walletRecipe(ConanFile):
 
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "src/*"
-    requires = "openssl/3.1.4"
+    requires = (
+        "openssl/3.1.4"
+    )
 
     def layout(self):
         cmake_layout(self)

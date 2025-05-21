@@ -6,15 +6,19 @@ if(WIN32)
 endif()
 
 
-find_package(OpenSSL REQUIRED)
+find_package(OpenSSL REQUIRED Boost REQUIRED COMPONENTS uuid CONFIG)
 
 
 add_executable(
         wallet 
         src/module/common/notfound-exception.h
+        src/module/common/utils.cpp
         src/module/app.cpp 
         src/module/user/user.cpp 
         src/module/user/user-repository.cpp
+        src/module/user/transaction-manager.cpp
+        src/module/user/transaction.cpp
+        src/module/user/transaction-repository.cpp
         src/module/auth/auth.cpp 
         src/wallet.cpp 
         src/main.cpp
