@@ -10,7 +10,6 @@ void readFromFile(vector<Transaction*>& transactions) {
     
     if(!in) {
         fstream out("storage/data/transactions.csv", ios::out);
-        throw runtime_error("Could not open the file....");
     }
 
     transactions.clear();
