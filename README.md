@@ -4,7 +4,8 @@
 + Nguyễn Vũ Thắng-K24DTCN091
 + Nguyễn Quốc Cường-K24DTCN045
 + Phạm Vương Mạnh-K24DTCN073
- (công việc cụ thể để sau khi nhóm trưởng giới thiệu và Demo đến từng phần của mỗi người)
+  
+(công việc cụ thể để sau khi nhóm trưởng giới thiệu và Demo đến từng phần của mỗi người)
 
 ●	Phân tích chi tiết:
  +	Chức năng đăng ký & đăng nhập:
